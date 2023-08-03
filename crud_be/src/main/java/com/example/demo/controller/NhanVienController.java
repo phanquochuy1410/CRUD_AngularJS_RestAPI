@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -72,10 +71,15 @@ public class NhanVienController {
         nhanVienService.update(nhanVien, id);
     }
 
+//    @GetMapping("/search")
+//    public ResponseEntity search(final NhanVien nhanVien) {
+//        List<NhanVien> search = nhanVienService.search(nhanVien.getMa());
+//        return new ResponseEntity(search, HttpStatus.OK);
+//    }
+
     @GetMapping("/search")
     public ResponseEntity search(final NhanVien nhanVien) {
-        List<NhanVien> search = nhanVienService.search(nhanVien.getMa());
+        List<NhanVien> search = nhanVienService.search(nhanVien.getMa() , nhanVien.getTen());
         return new ResponseEntity(search, HttpStatus.OK);
     }
-
 }

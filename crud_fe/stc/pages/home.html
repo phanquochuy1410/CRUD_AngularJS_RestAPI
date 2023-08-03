@@ -1,9 +1,12 @@
 <div>
     TÌM KIẾM
     <br>
-    Mã : <input type="text" ng-model="ma"><br>
-    Tên : <input type="text" ng-model="tenSearch"><br>
-    <a href="#/search" ng-click="search($event)"><button>Search</button></a><br>
+    <div>
+        Mã : <input type="text" ng-model="maSearch"><br>
+        Tên : <input type="text" ng-model="tenSearch"><br>
+        <button ng-click="search($event)">Search</button>
+    </div>
+    <br>
     DANH SÁCH
     <br>
     Mã : <input type="text" ng-model="x.ma"><br>
@@ -42,9 +45,10 @@
         </tbody>
     </table><br>
     <div>
-        <button ng-click="prevPage()"> << </button>
-        <button ng-click="prevPages()"> |< </button>
-        <button ng-click="nextPages()"> >| </button>
-        <button ng-click="nextPage()"> >> </button>
+        <button ng-click="prevPage()">
+            << </button>
+                <button ng-click="prevPages()"> |< </button>
+                        <button ng-click="nextPages()"> >| </button>
+                        <button ng-click="nextPage()"> >> </button>
     </div>
 </div>

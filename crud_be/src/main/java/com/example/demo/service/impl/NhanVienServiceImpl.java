@@ -60,13 +60,13 @@ public class NhanVienServiceImpl implements NhanVienService {
         nhanVienRepository.delete(nhanVien);
     }
 
-//    @Override
-//    public List<NhanVien> search(String ma , String ten) {
-//        return nhanVienRepository.search(ma , ten);
-//    }
-
     @Override
-    public List<NhanVien> search(String ma) {
-        return nhanVienRepository.search(ma);
+    public List<NhanVien> search(String ma , String ten) {
+        return nhanVienRepository.search(ma , ten);
     }
+
+//    @Override
+//    public List<NhanVien> search(String ma) {
+//        return nhanVienRepository.search(ma);
+//    }
 }

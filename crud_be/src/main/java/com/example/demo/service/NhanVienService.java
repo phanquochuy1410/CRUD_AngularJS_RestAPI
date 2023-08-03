@@ -20,8 +20,8 @@ public interface NhanVienService {
 
     void delete(NhanVien nhanVien);
 
-//    List<NhanVien> search(String ma , String ten);
+    List<NhanVien> search(String ma , String ten);
 
-    List<NhanVien> search(String ma );
+//    List<NhanVien> search(String ma );
 
 }

@@ -2,8 +2,9 @@ package com.example.demo.service;
 
 import com.example.demo.entity.NhanVien;
 import com.example.demo.model.repest.CreateNhanVien;
-import com.example.demo.model.repest.SearchNhanVien;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,6 @@ public interface NhanVienService {
 
     List<NhanVien> search(String ma , String ten);
 
-//    List<NhanVien> search(String ma );
+    Page<NhanVien> showAll(Pageable pageable , String ten , String ma);
 
 }

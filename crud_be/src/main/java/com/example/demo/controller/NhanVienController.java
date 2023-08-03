@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -40,8 +41,8 @@ public class NhanVienController {
     private ChucVuService chucVuService = new ChucVuServiceImpl();
 
     @GetMapping("/show")
-    public ResponseEntity hienThi(@RequestParam(defaultValue = "0") int pageNo) {
-        Page<NhanVien> phanTrang = nhanVienRepository.findAll(PageRequest.of(pageNo, 3));
+    public ResponseEntity hienThi(@RequestParam(defaultValue = "0") int pageNo, final NhanVien nhanVien) {
+        Page<NhanVien> phanTrang = nhanVienService.showAll(PageRequest.of(pageNo , 3) , nhanVien.getTen() , nhanVien.getMa());
         return new ResponseEntity(phanTrang, HttpStatus.OK);
     }
 
@@ -73,13 +74,7 @@ public class NhanVienController {
 
 //    @GetMapping("/search")
 //    public ResponseEntity search(final NhanVien nhanVien) {
-//        List<NhanVien> search = nhanVienService.search(nhanVien.getMa());
+//        List<NhanVien> search = nhanVienService.search(nhanVien.getMa(), nhanVien.getTen());
 //        return new ResponseEntity(search, HttpStatus.OK);
 //    }
-
-    @GetMapping("/search")
-    public ResponseEntity search(final NhanVien nhanVien) {
-        List<NhanVien> search = nhanVienService.search(nhanVien.getMa() , nhanVien.getTen());
-        return new ResponseEntity(search, HttpStatus.OK);
-    }
 }
